@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>URL Decoder</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+	This page decodes URLs and other base 64 encoded content within the browser, not passing anything back to the host.
+    <div class="container">
+        <h1>URL Decoder</h1>
+        <p>Paste the encoded URL below:</p>
+        <textarea id="encoded-url" rows="3" cols="50" placeholder="Paste encoded URL here..."></textarea>
+        <br>
+        <button id="decode-btn">Decode URL</button>
+        <h2>Decoded URL:</h2>
+        <textarea id="decoded-url" rows="3" cols="50" readonly></textarea>
+    </div>
+
+    <script>
+        document.getElementById("decode-btn").addEventListener("click", function() {
+            let encodedUrl = document.getElementById("encoded-url").value;
+            let decodedUrl = decodeURIComponent(encodedUrl);
+            document.getElementById("decoded-url").value = decodedUrl;
+        });
+    </script>
+</body>
+</html>
